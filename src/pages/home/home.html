@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title text-center style=" font-family: 'Roboto Slab', serif;">
+      Bhagavad Gita to the Rescue
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <!-- <br> <br> -->
+  <ion-img text-center width="100%" height="auto%" src="../../assets/imgs/gita.jpg" style="margin-top:20px;"></ion-img>
+  <!-- <br> <br> <br> <br> <br> -->
+  <form (ngSubmit)="showVerses()" >
+    <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques" ></ion-input>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 >
+        </ion-col>
+          <ion-col>
+            <button text-center ion-button type="submit">Help me!</button>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <div #map id="result" style="" >
+
+    <ion-card id = "loader" *ngIf="loaderCtrl" style="box-shadow: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+        <ion-card-content >
+        	<ion-card-title>
+
+        	</ion-card-title>
+        	<p text-center>
+                Loading
+        		<!-- The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. -->
+        	</p>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-card *ngFor="let verse of verses;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+        {{verse.num}}
+
+        <!-- <ion-icon name="star"  (click)="markFav(verse.text)"></ion-icon> -->
+
+        <button ion-button id="{{verse.id}}" (click)="markFav(verse.text, verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(0,0,0,0.7);box-shadow: none;">
+          <ion-icon name="star"></ion-icon>
+        </button>
+
+      </ion-card-header>
+      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
+        {{verse.text}} <br>
+        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chapter : {{verse.chap}} </span>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title style="font-family: 'Montserrat', sans-serif; font-family: 'Roboto Slab', serif;">
+      Your Favourite Slokas
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="openFavSlokas()" icon-end color="royal">
+        View!
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

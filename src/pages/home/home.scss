@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=KoHo|Montserrat|Roboto+Slab:700|Slabo+27px');
+
+.ios,
+.md {
+	home-page {
+		.scroll {
+			height: 100%;
+		}
+
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+
+		.verseTextArea {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+input[type=text] {
+	border-color: black;
+	border-style: hidden hidden solid hidden;
+	border-width: 1px;
+	padding: 10px;
+}
+
+input[type=text]:focus {
+	border-color: #f2a241;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+}
+
+.sloka-card {
+	border-width: 1px;
+	border-color: #f2a241;
+	border-style: solid;
+}
+
+.sloka-header {
+	background-color: #f2a241;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-family: 'Slabo 27px', serif;
+}
+
+.sloka-content {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-family: 'KoHo', sans-serif;
+}
+// #loader{
+//     display: none;
+// }
