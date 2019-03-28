@@ -19,7 +19,8 @@
       </ion-card-header>
       <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'Montserrat', sans-serif;font-family: 'KoHo', sans-serif;">
         {{verse.text}} <br>
-        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chapter : {{verse.chap}} </span>
+        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chap : {{verse.chap}}, Verse : {{verse.vno}} </span>
+        <span tappable (click) = "openIndSloka(verse.id)" style="color : rgba(50,50,50,.7);font-family: 'Roboto Slab', serif; float: right;"> Read more .. </span>
 
       </ion-card-content>
     </ion-card>

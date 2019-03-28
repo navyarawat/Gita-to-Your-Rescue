@@ -1,0 +1,111 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center style="font-family: 'Montserrat', sans-serif; font-family: 'Roboto Slab', serif;">
+			Chapter {{cno}}, Verse {{vno}}
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card id="loader" *ngIf="loaderCtrl;else other_content" style="box-shadow: none;">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+		<ion-card-content>
+			<ion-card-title>
+
+			</ion-card-title>
+			<p text-center>
+				Loading
+				<!-- The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. -->
+			</p>
+		</ion-card-content>
+	</ion-card>
+
+	<ng-template #other_content>
+		<ion-card style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+			<ion-card-header text-center style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+				Sanskrit Verse
+			</ion-card-header>
+			<ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
+				{{verse.sanskritverse}}
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+			<ion-card-header text-center style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+				Transiteration
+			</ion-card-header>
+			<ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
+				{{verse.versetransliteration}}
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+			<ion-card-header text-center style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+				Word Meanings
+			</ion-card-header>
+			<ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
+				<!-- {{verse.verseword}} -->
+                <ul>
+                <li *ngFor="let x of verse.verseword;index as i" >
+                    {{x}}
+                </li></ul>
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+			<ion-card-header text-center style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+				Translation
+			</ion-card-header>
+			<ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
+				{{verse.versetranslation}}
+			</ion-card-content>
+		</ion-card>
+
+        <!-- <ion-card style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+            <ion-card-header text-center style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+                Translation
+                <button ion-button id="{{verse.id}}" (click)="markFav(verse.versetranslation, verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(0,0,0,0.7);box-shadow: none;">
+                  <ion-icon name="star"></ion-icon>
+                </button>
+            </ion-card-header>
+
+        </ion-card> -->
+
+
+	</ng-template>
+
+	<!-- {{verse}} -->
+</ion-content>
+
+<ion-footer *ngIf="loaderCtrl == false">
+  <ion-toolbar>
+    <ion-title style="font-family: 'Montserrat', sans-serif; font-family: 'Roboto Slab', serif;">
+      {{txtCtrl}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-end  (click)="markFav(verse.versetranslation, verse.id)" style="color:rgba(0,0,0,0.7);">
+
+        <ion-icon name="star" id="{{verse.id}}"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+<!--
+<ion-content>
+    <ion-card *ngFor="let verse of verses;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Montserrat', sans-serif;font-family: 'KoHo', sans-serif;font-family: 'Slabo 27px', serif;">
+        {{verse.num}}
+
+
+        <button ion-button (click)="deleteFav( verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(255, 255, 255);box-shadow: none;">
+          <ion-icon name="md-trash"></ion-icon>
+        </button>
+
+      </ion-card-header>
+      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'Montserrat', sans-serif;font-family: 'KoHo', sans-serif;">
+        {{verse.text}} <br>
+        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chapter : {{verse.chap}} </span>
+
+      </ion-card-content>
+    </ion-card>
+
+</ion-content> -->

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=KoHo|Montserrat|Roboto+Slab:700|Slabo+27px");
+@import url("https://fonts.googleapis.com/css?family=KoHo|Montserrat|Roboto+Slab:700|Slabo+27px");
+@import url("https://fonts.googleapis.com/css?family=KoHo|Montserrat|Roboto+Slab:700|Slabo+27px");
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25675,23 +25677,26 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-.ios home-page .scroll, .md home-page .scroll {
+.ios home-page .scroll,
+.md home-page .scroll {
   height: 100%;
 }
 
-.ios home-page #map, .md home-page #map {
+.ios home-page #map,
+.md home-page #map {
   width: 100%;
   height: 100%;
 }
 
-.ios home-page .verseTextArea, .md home-page .verseTextArea {
+.ios home-page .verseTextArea,
+.md home-page .verseTextArea {
   width: 100%;
   height: 100%;
 }
 
 input[type=text] {
   border-color: black;
-  border-style: hidden  hidden solid hidden;
+  border-style: hidden hidden solid hidden;
   border-width: 1px;
   padding: 10px;
 }
@@ -25701,4 +25706,23 @@ input[type=text]:focus {
   border-style: solid;
   border-width: 1px;
   padding: 10px;
+}
+
+.sloka-card {
+  border-width: 1px;
+  border-color: #f2a241;
+  border-style: solid;
+}
+
+.sloka-header {
+  background-color: #f2a241;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-family: 'Slabo 27px', serif;
+}
+
+.sloka-content {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: 'KoHo', sans-serif;
 }

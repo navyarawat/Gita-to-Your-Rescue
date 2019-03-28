@@ -2,6 +2,7 @@ import 'rxjs/add/operator/map';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Page1Page } from '../page1/page1';
+import { slokaEach } from '../sloka1/sloka1';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BgServiceProvider } from '../../providers/bg-service/bg-service';
 import { Storage } from '@ionic/storage';
@@ -22,10 +23,22 @@ export class HomePage {
 	public verses: any;
 	public qdata: any;
 	public loaderCtrl: any;
+	public dayCtrl: any;
+	public verseDay: any;
 	// public query: any;
 	constructor(private storage: Storage, private alertCtrl: AlertController, public bgService: BgServiceProvider, private formBuilder: FormBuilder, public platform: Platform, public navCtrl: NavController) {
 		// this.verses = "Wait for it"
 		       this.loaderCtrl = false ;
+			   this.platform.ready().then(() => {
+
+	   			this.bgService.load( 'http://hss-iitk.herokuapp.com/api/cs252?verse=day').then(data => {
+					console.log(data["verse-meaning"]);
+					this.verseDay = data["verse-meaning"];
+					this.dayCtrl = true;
+
+				});
+			});
+
 		// storage.set('name', 'Max');
 
 		// Or to get a key/value pair
@@ -38,6 +51,8 @@ export class HomePage {
 
 		this.platform.ready().then(() => {
 			console.log("LOG1");
+			this.dayCtrl = false;
+			this.verses = [];
 			this.loaderCtrl = true ;
 
 			let y = document.getElementById("result").offsetTop;
@@ -86,7 +101,8 @@ export class HomePage {
 			// };
 			console.log("qry : ", this.query);
 			// this.query = "";
-			this.bgService.load(this.query, rflag).then(data => {
+			this.bgService.load( 'http://35.244.18.79/api?query=' + this.query).then(data => {
+			// this.dayCtrl = false;
 				console.log("LOG2 ");
 				this.verses = [];
 				console.log(data);
@@ -95,37 +111,42 @@ export class HomePage {
 				// console.log( JSON.parse(data));
 				let resp = [
 					{
-						"text": rdata.shloka0.text,
+						"text": rdata["shloka0"].text,
 						"num": "Shloka - 1",
-						"id": 'sloka_' + rdata.shloka0.verse_id,
-						"chap": rdata.shloka0.chapter
+						"id": 'sloka_' + rdata["shloka0"].verse_id,
+						"chap": rdata["shloka0"].chapter,
+						"vno" : rdata["shloka0"].verse_id.split("_")[1]
 					},
 					{
-						"text": rdata.shloka1.text,
+						"text": rdata["shloka1"].text,
 						"num": "Shloka - 2",
-						"id": 'sloka_' + rdata.shloka1.verse_id,
-						"chap": rdata.shloka1.chapter
+						"id": 'sloka_' + rdata["shloka1"].verse_id,
+						"chap": rdata["shloka1"].chapter,
+						"vno" : rdata["shloka1"].verse_id.split("_")[1]
 
 					},
 					{
-						"text": rdata.shloka2.text,
+						"text": rdata["shloka2"].text,
 						"num": "Shloka - 3",
-						"id": 'sloka_' + rdata.shloka2.verse_id,
-						"chap": rdata.shloka2.chapter
+						"id": 'sloka_' + rdata["shloka2"].verse_id,
+						"chap": rdata["shloka2"].chapter,
+						"vno" : rdata["shloka2"].verse_id.split("_")[1]
 
 					},
 					{
-						"text": rdata.shloka3.text,
+						"text": rdata["shloka3"].text,
 						"num": "Shloka - 4",
-						"id": 'sloka_' + rdata.shloka3.verse_id,
-						"chap": rdata.shloka3.chapter
+						"id": 'sloka_' + rdata["shloka3"].verse_id,
+						"chap": rdata["shloka3"].chapter,
+						"vno" : rdata["shloka3"].verse_id.split("_")[1]
 
 					},
 					{
-						"text": rdata.shloka4.text,
+						"text": rdata["shloka4"].text,
 						"num": "Shloka - 5",
-						"id": 'sloka_' + rdata.shloka4.verse_id,
-						"chap": rdata.shloka4.chapter
+						"id": 'sloka_' + rdata["shloka4"].verse_id,
+						"chap": rdata["shloka4"].chapter,
+						"vno" : rdata["shloka4"].verse_id.split("_")[1]
 
 					}
 				];
@@ -168,16 +189,22 @@ export class HomePage {
 			}
 		});
 
-		// this.storage.forEach( (value, key, index) => {
-		// console.log("This is the value", value)
-		// console.log("from the key", key)
-		// console.log("Index is", index)
-		// });
-
 	}
 
 	openFavSlokas() {
+
 		this.navCtrl.push(Page1Page);
+	}
+	openIndSloka(vid){
+		// console.log(vid);
+		let verse = vid.split("_")[1];
+		let chapter = vid.split("_")[2];
+		this.navCtrl.push(slokaEach,{
+			"chapter" : chapter,
+			"verse" : verse,
+			"vid" : vid
+		});
+
 	}
 
 }

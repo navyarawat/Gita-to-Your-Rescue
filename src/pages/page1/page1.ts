@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { slokaEach } from '../sloka1/sloka1';
 
 
 @IonicPage()
@@ -27,7 +28,8 @@ export class Page1Page {
     				"num": "Sloka - " + ctr,
     				"text": value,
                     "id" : key,
-                    "chap" : key.split("_")[2]
+                    "chap" : key.split("_")[2],
+					"vno" : key.split("_")[1]
 
     			});
     			ctr++;
@@ -53,7 +55,8 @@ export class Page1Page {
     				"num": "Sloka - " + ctr,
     				"text": value,
                     "id" : key,
-                    "chap" : key.split("_")[2]
+                    "chap" : key.split("_")[2],
+					"vno" : key.split("_")[1]
 
     			});
     			ctr++;
@@ -65,4 +68,15 @@ export class Page1Page {
 			// console.log("Index is", index)
 		});
     }
+
+	openIndSloka(vid){
+		// console.log(vid);
+		let verse = vid.split("_")[1];
+		let chapter = vid.split("_")[2];
+		this.navCtrl.push(slokaEach,{
+			"chapter" : chapter,
+			"verse" : verse,
+			"vid" : vid
+		});
+	}
 }

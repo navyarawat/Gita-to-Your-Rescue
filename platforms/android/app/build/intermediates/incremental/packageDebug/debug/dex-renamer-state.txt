@@ -1,4 +1,4 @@
-#Wed Nov 14 12:24:38 IST 2018
-base.0=/home/navya/Desktop/copy/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Thu Mar 28 13:53:27 IST 2019
+base.0=/home/navya/Desktop/Bhagavad Gita App/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

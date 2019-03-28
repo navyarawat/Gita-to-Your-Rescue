@@ -7,6 +7,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Page1Page } from '../pages/page1/page1';
+import { slokaEach } from '../pages/sloka1/sloka1';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 import { BgServiceProvider } from '../providers/bg-service/bg-service';
@@ -15,7 +16,8 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [
     MyApp,
     HomePage,
-    Page1Page
+    Page1Page,
+    slokaEach
   ],
   imports: [
     HttpClientModule,
@@ -27,7 +29,8 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     HomePage,
-    Page1Page
+    Page1Page,
+    slokaEach
   ],
   providers: [
     Geolocation,

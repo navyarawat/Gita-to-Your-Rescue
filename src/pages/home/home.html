@@ -27,7 +27,17 @@
 
   <div #map id="result" style="" >
 
-    <ion-card id = "loader" *ngIf="loaderCtrl" style="box-shadow: none;">
+      <ion-card style="border-width: 1px; border-color: #f2a241; border-style: solid;" *ngIf="dayCtrl">
+          <ion-card-header text-center style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Slabo 27px', serif;">
+              Verse of the Day
+          </ion-card-header>
+          <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
+              {{verseDay}}
+          </ion-card-content>
+      </ion-card>
+
+
+    <ion-card id = "loader" *ngIf="loaderCtrl" style="box-shadow: none;" >
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
         <ion-card-content >
         	<ion-card-title>
@@ -54,7 +64,10 @@
       </ion-card-header>
       <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
         {{verse.text}} <br>
-        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chapter : {{verse.chap}} </span>
+        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chap : {{verse.chap}}, Verse : {{verse.vno}}  </span>
+        <span tappable (click) = "openIndSloka(verse.id)" style="color : rgba(50,50,50,.7);font-family: 'Roboto Slab', serif; float: right;"> Read more .. </span>
+
+
       </ion-card-content>
     </ion-card>
   </div>
