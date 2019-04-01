@@ -1,4 +1,4 @@
-#Thu Mar 28 14:27:16 IST 2019
-base.0=/home/navya/Desktop/Bhagavad Gita App/platforms/android/app/build/intermediates/transforms/dex/release/0
+#Thu Mar 28 15:25:10 IST 2019
+base.0=/home/navya/Desktop/Bhagavad Gita Help/Latest Version/platforms/android/app/build/intermediates/transforms/dex/release/0
 path.0=classes.dex
 renamed.0=classes.dex

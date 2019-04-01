@@ -70,23 +70,23 @@ export class HomePage {
 
 				return ;
 			}
-			let rflag = 1;
-			if(!this.pquery){
-				rflag = 1;
-				// console.log("npq");
-			}
-			else if(this.pquery == this.query){
-				// console.log("pq=q");
-				rflag = 0;
-				let alert = this.alertCtrl.create({
-					title: 'Alert',
-					subTitle: 'Similar query',
-					buttons: ['Dismiss']
-				});
-				alert.present();
-				this.loaderCtrl = false ;
-				return;
-			}
+			// let rflag = 1;
+			// if(!this.pquery){
+			// 	rflag = 1;
+			// 	// console.log("npq");
+			// }
+			// else if(this.pquery == this.query){
+			// 	// console.log("pq=q");
+			// 	rflag = 0;
+			// 	let alert = this.alertCtrl.create({
+			// 		title: 'Alert',
+			// 		subTitle: 'Similar query',
+			// 		buttons: ['Dismiss']
+			// 	});
+			// 	alert.present();
+			// 	this.loaderCtrl = false ;
+			// 	return;
+			// }
 
 			let qdata = {};
 
@@ -112,41 +112,41 @@ export class HomePage {
 				let resp = [
 					{
 						"text": rdata["shloka0"].text,
-						"num": "Shloka - 1",
+						"num": "Sloka - 1",
 						"id": 'sloka_' + rdata["shloka0"].verse_id,
 						"chap": rdata["shloka0"].chapter,
-						"vno" : rdata["shloka0"].verse_id.split("_")[1]
+						"vno" : rdata["shloka0"].verse_id.split("_")[0]
 					},
 					{
 						"text": rdata["shloka1"].text,
-						"num": "Shloka - 2",
+						"num": "Sloka - 2",
 						"id": 'sloka_' + rdata["shloka1"].verse_id,
 						"chap": rdata["shloka1"].chapter,
-						"vno" : rdata["shloka1"].verse_id.split("_")[1]
+						"vno" : rdata["shloka1"].verse_id.split("_")[0]
 
 					},
 					{
 						"text": rdata["shloka2"].text,
-						"num": "Shloka - 3",
+						"num": "Sloka - 3",
 						"id": 'sloka_' + rdata["shloka2"].verse_id,
 						"chap": rdata["shloka2"].chapter,
-						"vno" : rdata["shloka2"].verse_id.split("_")[1]
+						"vno" : rdata["shloka2"].verse_id.split("_")[0]
 
 					},
 					{
 						"text": rdata["shloka3"].text,
-						"num": "Shloka - 4",
+						"num": "Sloka - 4",
 						"id": 'sloka_' + rdata["shloka3"].verse_id,
 						"chap": rdata["shloka3"].chapter,
-						"vno" : rdata["shloka3"].verse_id.split("_")[1]
+						"vno" : rdata["shloka3"].verse_id.split("_")[0]
 
 					},
 					{
 						"text": rdata["shloka4"].text,
-						"num": "Shloka - 5",
+						"num": "Sloka - 5",
 						"id": 'sloka_' + rdata["shloka4"].verse_id,
 						"chap": rdata["shloka4"].chapter,
-						"vno" : rdata["shloka4"].verse_id.split("_")[1]
+						"vno" : rdata["shloka4"].verse_id.split("_")[0]
 
 					}
 				];
@@ -176,12 +176,14 @@ export class HomePage {
 		console.log("marker : ", verse);
 		this.storage.get(vid).then((val) => {
 			if (val) {
-				let alert = this.alertCtrl.create({
-					title: 'Alert',
-					subTitle: 'Selected Sloka already starred!',
-					buttons: ['Dismiss']
-				});
-				alert.present();
+				// let alert = this.alertCtrl.create({
+				// 	title: 'Alert',
+				// 	subTitle: 'Selected Sloka already starred!',
+				// 	buttons: ['Dismiss']
+				// });
+				// alert.present();
+				this.storage.remove(vid);
+				document.getElementById(vid).style.color = 'black';	
 			}
 			else {
 				this.storage.set(vid, verse);

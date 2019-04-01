@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar >
     <ion-title text-center style=" font-family: 'Roboto Slab', serif;">
-      Bhagavad Gita to the Rescue
+      Bhagavad Gita Help
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,7 +10,7 @@
 
 <ion-content>
   <!-- <br> <br> -->
-  <ion-img text-center width="100%" height="auto%" src="../../assets/imgs/gita.jpg" style="margin-top:20px;"></ion-img>
+  <!-- <ion-img text-center width="100%" height="auto%" src="../../assets/imgs/gita.jpg" style="margin-top:20px;"></ion-img> -->
   <!-- <br> <br> <br> <br> <br> -->
   <form (ngSubmit)="showVerses()" >
     <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques" ></ion-input>
@@ -19,7 +19,7 @@
         <ion-col col-4 >
         </ion-col>
           <ion-col>
-            <button text-center ion-button type="submit">Help me!</button>
+            <button text-center ion-button type="submit">Get Slokas</button>
           </ion-col>
       </ion-row>
     </ion-grid>
@@ -57,7 +57,7 @@
 
         <!-- <ion-icon name="star"  (click)="markFav(verse.text)"></ion-icon> -->
 
-        <button ion-button id="{{verse.id}}" (click)="markFav(verse.text, verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(0,0,0,0.7);box-shadow: none;">
+        <button ion-button id="{{verse.id}}"  (click)="markFav(verse.text, verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:black;box-shadow: none;">
           <ion-icon name="star"></ion-icon>
         </button>
 
@@ -80,7 +80,7 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="openFavSlokas()" icon-end color="royal">
-        View!
+        View
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-buttons>

@@ -43,16 +43,16 @@ export class slokaEach {
 				this.cno = chapter;
 				this.loaderCtrl = false ;
 
-				this.storage.get(this.verse.id).then((val) => {
-					if (val) {
-						console.log("ald");
-						document.getElementById(this.verse.id).style.color = 'white';
-						this.txtCtrl = "Starred Sloka!!";
-					}
-					else{
-						this.txtCtrl = "Mark as Favourite !!";
-					}
-				});
+				// this.storage.get(this.verse.id).then((val) => {
+				// 	if (val) {
+				// 		console.log("ald");
+				// 		document.getElementById(this.verse.id).style.color = 'white';
+				// 		this.txtCtrl = "Starred Sloka!!";
+				// 	}
+				// 	else{
+				// 		this.txtCtrl = "Mark as Favourite !!";
+				// 	}
+				// });
 			});
 		});
 
